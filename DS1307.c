@@ -195,14 +195,14 @@ return data;
  OUTPUT: -
  NOTA: Setea los parametros del reloj
 **************************************************************************/
-void DS1307_SetDatetime(byte date,byte mth,byte year,byte hr,byte min,byte day){
-	DS1307_write(REG_SECONDS,get_bcd(0));
+void DS1307_SetDatetime(byte date,byte mth,byte year,byte hr,byte min,byte sec){
+	DS1307_write(REG_SECONDS,get_bcd(sec));
 	delay_ms(5);
 	DS1307_write(REG_MINUTES,get_bcd(min));
 	delay_ms(5);
 	DS1307_write(REG_HORAS,get_bcd(hr));
 	delay_ms(5);
-	DS1307_write(REG_DAY,get_bcd(day));
+	DS1307_write(REG_DAY,get_bcd(0));
 	delay_ms(5);
 	DS1307_write(REG_DATE,get_bcd(date));
 	delay_ms(5);
